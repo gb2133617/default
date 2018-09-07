@@ -6,74 +6,90 @@ var godSpawn = {
         
     creepType.run();    
     
+   /* //count creeps by type
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     var miners = _.filter(Game.creeps, (creep) => creep.memory.role == 'miner');
     var lorrys = _.filter(Game.creeps, (creep) => creep.memory.role == 'lorry');
     var longharvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'lhd');
-    
-    console.log('Harvesters: ' + harvesters.length);
-    console.log('Builders: ' + builders.length);
-    console.log('Upgraders: ' + upgraders.length);
-    console.log('Miners: ' + miners.length);
-    console.log('Lorrys: ' + miners.length);
-    console.log('LHD: ' + miners.length);
+    */
 
-    if(harvesters.length < 1) {
+    //console log each type qty
+    console.log(creep.memory.role + spawn.memory.harvesterQty);
+    console.log(creep.memory.role + spawn.memory.builderQty);
+    console.log(creep.memory.role + spawn.memory.upgraderQty);
+    console.log(creep.memory.role + spawn.memory.minerQty);
+    console.log(creep.memory.role + spawn.memory.lorryQty);
+    console.log(creep.memory.role + spawn.memory.lhdQty);
+
+    //spawn wrap
+    spawn = Game.spawns['Spawn1'];
+
+    //target role qty MAX
+    spawn.memory.harvesterMax = 1;
+    spawn.memory.builderMax   = 2;
+    spawn.memory.upgraderMax  = 4;
+    spawn.memory.minerMax     = 2;
+    spawn.memory.lorryMax     = 3;
+    spawn.memory.lhdMax       = 5;
+
+    //current role qty
+    spawn.memory.harvesterQty = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+    spawn.memory.builderQty   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+    spawn.memory.upgraderQty  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+    spawn.memory.minerQty     = _.filter(Game.creeps, (creep) => creep.memory.role == 'miner');
+    spawn.memory.lorryQty     = _.filter(Game.creeps, (creep) => creep.memory.role == 'lorry');
+    spawn.memory.lhdQty       = _.filter(Game.creeps, (creep) => creep.memory.role == 'lhd');
+
+    //spawning by role
+    if(spawn.memory.harvesterQty < spawn.memory.harvesterMax) {
         var newName = 'Harvester' + Game.time;
-        console.log('Spawning new harvester: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep(creepType.typeHarvester, newName,
+        spawn.spawnCreep(creepType.typeHarvester, newName,
             {memory: {role: 'harvester'}});
     }
-    if(builders.length < 2 && harvesters.length > 0) {
+    if(spawn.memory.builderQty < spawn.memory.builderMax  && harvesters.length > 0) {
         var newName = 'Builder' + Game.time;
-        console.log('Spawning new builder: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep(creepType.typeBuilder, newName,
+        spawn.spawnCreep(creepType.typeBuilder, newName,
             {memory: {role: 'builder'}});
     }
-    if(upgraders.length < 4 && harvesters.length > 0) {
+    if(spawn.memory.upgraderQty < spawn.memory.upgraderMax  && harvesters.length > 0) {
         var newName = 'Upgrader' + Game.time;
-        console.log('Spawning new upgrader: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep(creepType.typeUpgrader, newName,
+        spawn.spawnCreep(creepType.typeUpgrader, newName,
             {memory: {role: 'upgrader',
                       working: 'false'
             }});
     }        
-    if(miners.length < 2) {
-        
+    if(spawn.memory.minerQty  < spawn.memory.minerMax) {
         var newName = 'Miner' + Game.time;
-        console.log('Spawning new miner: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep(creepType.typeMiner, newName,
+        spawn.spawnCreep(creepType.typeMiner, newName,
             {memory: {role: 'miner'
             }});
     }
-    if(lorrys.length < 3) {
+    if(spawn.memory.lorryQty  < spawn.memory.lorryMax) {
         var newName = 'Lorry' + Game.time;
-        console.log('Spawning new lorry: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep(creepType.typeLorry, newName,
+        spawn.spawnCreep(creepType.typeLorry, newName,
             {memory: {role: 'lorry'}});
     }
-    if(longharvesters.length < 5) {
-        var newName = 'LHD' + Game.time;
-        console.log('Spawning new LHD: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep(creepType.lhd, newName,
+    if(spawn.memory.lhdQty  < spawn.memory.lhdMax) {
+        var newName = 'W52N57LHD' + Game.time;
+        spawn.spawnCreep(creepType.lhd, newName,
             {memory: {role: 'lhd',
                       home: 'W51N57',
                       target: 'W52N57',
-                      working: false
-            }});
+                      working: false }});
     }
-    if(Game.spawns['Spawn1'].spawning) {
-        var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
-        Game.spawns['Spawn1'].room.visual.text(
+    if(spawn.spawning) {
+
+        var spawningCreep = Game.creeps[spawn.spawning.name];
+        console.log('Spawning new:' + spawningCreep.memory.role);
+
+        spawn.room.visual.text(
             '🛠️' + spawningCreep.memory.role,
-            Game.spawns['Spawn1'].pos.x + 1,
-            Game.spawns['Spawn1'].pos.y,
+            spawn.pos.x + 1,
+            spawn.pos.y,
             {align: 'left', opacity: 0.8});
     }
-}
-
-
+    }
 };
 module.exports = godSpawn;
