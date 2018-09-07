@@ -29,12 +29,12 @@ var godSpawn = {
     spawn.memory.lhdMax       = 5;
 
     //current role qty
-    spawn.memory.harvesterQty = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-    spawn.memory.builderQty   = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-    spawn.memory.upgraderQty  = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-    spawn.memory.minerQty     = _.filter(Game.creeps, (creep) => creep.memory.role == 'miner');
-    spawn.memory.lorryQty     = _.filter(Game.creeps, (creep) => creep.memory.role == 'lorry');
-    spawn.memory.lhdQty       = _.filter(Game.creeps, (creep) => creep.memory.role == 'lhd');
+    spawn.memory.harvesterQty = (_.filter(Game.creeps, (creep) => creep.memory.role == 'harvester')).length;
+    spawn.memory.builderQty   = (_.filter(Game.creeps, (creep) => creep.memory.role == 'builder')).length;
+    spawn.memory.upgraderQty  = (_.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')).length;
+    spawn.memory.minerQty     = (_.filter(Game.creeps, (creep) => creep.memory.role == 'miner')).length;
+    spawn.memory.lorryQty     = (_.filter(Game.creeps, (creep) => creep.memory.role == 'lorry')).length;
+    spawn.memory.lhdQty       = (_.filter(Game.creeps, (creep) => creep.memory.role == 'lhd')).length;
 
     //spawning by role
     if(spawn.memory.harvesterQty < spawn.memory.harvesterMax) {
