@@ -7,21 +7,17 @@ var godSpawn = {
     creepType.run();    
     
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-    console.log('Harvesters: ' + harvesters.length);
-    
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
-    console.log('Builders: ' + builders.length);
-    
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-    console.log('Upgraders: ' + upgraders.length);
-    
     var miners = _.filter(Game.creeps, (creep) => creep.memory.role == 'miner');
-    console.log('Miners: ' + miners.length);
-
     var lorrys = _.filter(Game.creeps, (creep) => creep.memory.role == 'lorry');
-    console.log('Lorrys: ' + miners.length);
-    
     var longharvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'lhd');
+    
+    console.log('Harvesters: ' + harvesters.length);
+    console.log('Builders: ' + builders.length);
+    console.log('Upgraders: ' + upgraders.length);
+    console.log('Miners: ' + miners.length);
+    console.log('Lorrys: ' + miners.length);
     console.log('LHD: ' + miners.length);
 
     if(harvesters.length < 1) {
