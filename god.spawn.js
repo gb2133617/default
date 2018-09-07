@@ -13,7 +13,7 @@ var godSpawn = {
     var miners = _.filter(Game.creeps, (creep) => creep.memory.role == 'miner');
     var lorrys = _.filter(Game.creeps, (creep) => creep.memory.role == 'lorry');
     var longharvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'lhd');
-    */
+    
 
     //console log each type qty
     console.log(creep.memory.role + spawn.memory.harvesterQty);
@@ -22,7 +22,7 @@ var godSpawn = {
     console.log(creep.memory.role + spawn.memory.minerQty);
     console.log(creep.memory.role + spawn.memory.lorryQty);
     console.log(creep.memory.role + spawn.memory.lhdQty);
-
+*/
     //spawn wrap
     spawn = Game.spawns['Spawn1'];
 
