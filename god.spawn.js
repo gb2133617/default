@@ -15,13 +15,7 @@ var godSpawn = {
     var longharvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'lhd');
     */
 
-    //console log each type qty
-    console.log('Harvester' + spawn.memory.harvesterQty);
-    console.log('Builder' + spawn.memory.builderQty);
-    console.log('Upgrader' + spawn.memory.upgraderQty);
-    console.log('Miner' + spawn.memory.minerQty);
-    console.log('Lorry' + spawn.memory.lorryQty);
-    console.log("Lhd" + spawn.memory.lhdQty);
+    
 
     //spawn wrap
     spawn = Game.spawns['Spawn1'];
@@ -90,6 +84,14 @@ var godSpawn = {
             spawn.pos.y,
             {align: 'left', opacity: 0.8});
     }
+
+    //console log each type qty
+    console.log('Harvester' + spawn.memory.harvesterQty);
+    console.log('Builder' + spawn.memory.builderQty);
+    console.log('Upgrader' + spawn.memory.upgraderQty);
+    console.log('Miner' + spawn.memory.minerQty);
+    console.log('Lorry' + spawn.memory.lorryQty);
+    console.log("Lhd" + spawn.memory.lhdQty);
     }
 };
 module.exports = godSpawn;
