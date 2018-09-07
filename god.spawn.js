@@ -36,11 +36,17 @@ var godSpawn = {
     spawn.memory.lorryQty     = (_.filter(Game.creeps, (creep) => creep.memory.role == 'lorry')).length;
     spawn.memory.lhdQty       = (_.filter(Game.creeps, (creep) => creep.memory.role == 'lhd')).length;
 
+    //spawn que
+    var spawnQueu = [0,0,0,0,0,0]
+    spawn.memory.spawnQueu = spawnQueu;
+
     //spawning by role
     if(spawn.memory.harvesterQty < spawn.memory.harvesterMax) {
+        spawnQueu[0] == 1;
         var newName = 'Harvester' + Game.time;
         spawn.spawnCreep(creepType.typeHarvester, newName,
             {memory: {role: 'harvester'}});
+
     }
     if(spawn.memory.builderQty < spawn.memory.builderMax  && harvesters.length > 0) {
         var newName = 'Builder' + Game.time;
@@ -86,12 +92,12 @@ var godSpawn = {
     }
 
     //console log each type qty
-    console.log('Harvester' + spawn.memory.harvesterQty);
-    console.log('Builder' + spawn.memory.builderQty);
-    console.log('Upgrader' + spawn.memory.upgraderQty);
-    console.log('Miner' + spawn.memory.minerQty);
-    console.log('Lorry' + spawn.memory.lorryQty);
-    console.log("Lhd" + spawn.memory.lhdQty);
+    console.log('Harvester :' + spawn.memory.harvesterQty);
+    console.log('Builder   :' + spawn.memory.builderQty);
+    console.log('Upgrader  :' + spawn.memory.upgraderQty);
+    console.log('Miner     :' + spawn.memory.minerQty);
+    console.log('Lorry     :' + spawn.memory.lorryQty);
+    console.log('Lhd       :' + spawn.memory.lhdQty);
     }
 };
 module.exports = godSpawn;
