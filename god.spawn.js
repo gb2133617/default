@@ -1,5 +1,5 @@
 var creepType = require('god.creeptype');
-
+var spawnQueu = [];
 var godSpawn = {
    
     run: function(){
@@ -78,22 +78,22 @@ var godSpawn = {
 
     //spawning by role
     if(spawn.memory.harvesterQty < spawn.memory.harvesterMax) {
-        spawnQeue.push('Harvester');
+        spawn.memory.spawnQueu.push('Harvester');
     }
     if(spawn.memory.builderQty < spawn.memory.builderMax  && spawn.memory.harvesterMax > 0) {
-        spawnQeue.push('Builder');
+        spawn.memory.spawnQueu.push('Builder');
     }
     if(spawn.memory.upgraderQty < spawn.memory.upgraderMax  && spawn.memory.harvesterMax > 0) {
-        spawnQeue.push('Upgrader');
+        spawn.memory.spawnQueu.push('Upgrader');
     }
     if(spawn.memory.minerQty  < spawn.memory.minerMax) {
-        spawnQeue.push('Miner');
+        spawn.memory.spawnQueu.push('Miner');
     }
     if(spawn.memory.lorryQty  < spawn.memory.lorryMax) {
-        spawnQeue.push('Lorry');
+        spawn.memory.spawnQueu.push('Lorry');
     }
     if(spawn.memory.lhdQty  < spawn.memory.lhdMax) {
-        spawnQeue.push('W52N57LHD');
+        spawn.memory.spawnQueu.push('W52N57LHD');
     }
 
     if(spawn.spawning) {
@@ -117,6 +117,7 @@ var godSpawn = {
     console.log('Miner     :' + spawn.memory.minerQty);
     console.log('Lorry     :' + spawn.memory.lorryQty);
     console.log('Lhd       :' + spawn.memory.lhdQty);
+    console.log('Order que :' + spawnQueu);
     }
 };
 module.exports = godSpawn;
