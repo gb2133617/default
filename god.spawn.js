@@ -56,29 +56,29 @@ var godSpawn = {
         var spawn = Game.spawns['Spawn1']
         var newName = spawn.memory.order + Game.time;
         
-        if (spawn.memory.order == 'Harvester') {
+        if (spawn.memory.order == 'Harvester' && spawn.memory.harvesterQty < spawn.memory.harvesterMax) {
             spawn.spawnCreep(creepType.typeHarvester, newName, {memory: {role: 'harvester'}}); 
             spawn.memory.spawnQueu.shift();  
         }
-        if (spawn.memory.order == 'Builder') {
+        if (spawn.memory.order == 'Builder' && spawn.memory.builderQty < spawn.memory.builderMax) {
             spawn.spawnCreep(creepType.typeBuilder, newName, {memory: {role: 'builder'}});
             spawn.memory.spawnQueu.shift();  
         }
-        if (spawn.memory.order == 'Upgrader') {
+        if (spawn.memory.order == 'Upgrader' && spawn.memory.upgraderQty < spawn.memory.upgraderMax) {
             spawn.spawnCreep(creepType.typeUpgrader, newName, {memory: {role: 'upgrader',
                                                                      working: 'false'}});
             spawn.memory.spawnQueu.shift();
         }
-        if (spawn.memory.order == 'Miner') {
+        if (spawn.memory.order == 'Miner' && spawn.memory.minerQty  < spawn.memory.minerMax) {
             spawn.spawnCreep(creepType.typeMiner, newName, {memory: {role: 'miner'}});
             spawn.memory.spawnQueu.shift();
         }
-        if (spawn.memory.order == 'Lorry') {
+        if (spawn.memory.order == 'Lorry' && spawn.memory.lorryQty  < spawn.memory.lorryMax) {
             spawn.spawnCreep(creepType.typeLorry, newName, {memory: {role: 'lorry'}});
             spawn.memory.spawnQueu.shift();
         }
-        if (spawn.memory.order == 'W52N57LHD') {
-            spawn.spawnCreep(creepType.typeW52N57LHD, newName, {memory: {role: 'lhd',
+        if (spawn.memory.order == 'W52N57LHD' && spawn.memory.lhdQty  < spawn.memory.lhdMax) {
+            spawn.spawnCreep(creepType.lhd, newName, {memory: {role: 'lhd',
                                                                         home: 'W51N57',
                                                                       target: 'W52N57',
                                                                      working: false }});
