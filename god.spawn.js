@@ -38,15 +38,17 @@ var godSpawn = {
 
     //spawn que
     var spawnQueu = [];
+    var spawningCreep = Game.creeps[spawn.spawning.name];
     spawn.memory.spawnQueu = spawnQueu;
     spawn.memory.order = spawnQueu[0];
 
-    if(spawn.spawning) {
-            spawn.memory.Ready = false;
+
+    if(spawningCreep) {
+            spawn.memory.Ready = true;
             creep.say(chilling);
         }
-    if(!spawn.spawning) {
-            spawn.memory.Ready = true;
+    if(!spawningCreep) {
+            spawn.memory.Ready = false;
             creep.say(busy);
         }
 
