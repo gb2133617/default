@@ -37,12 +37,13 @@ var godSpawn = {
     spawn.memory.lhdQty       = (_.filter(Game.creeps, (creep) => creep.memory.role == 'lhd')).length;
 
     //spawn que
-    var spawnQueu = [0,0,0,0,0,0]
+    var spawnQueu = []
     spawn.memory.spawnQueu = spawnQueu;
 
     //spawning by role
     if(spawn.memory.harvesterQty < spawn.memory.harvesterMax) {
-        spawnQueu[0] == 1;
+        spawnQeue.push('Harvester');
+        
         var newName = 'Harvester' + Game.time;
         spawn.spawnCreep(creepType.typeHarvester, newName,
             {memory: {role: 'harvester'}});
