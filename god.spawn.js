@@ -37,7 +37,7 @@ var godSpawn = {
     spawn.memory.lhdQty       = (_.filter(Game.creeps, (creep) => creep.memory.role == 'lhd')).length;
 
     //spawn que
-    var spawnQueu = []
+    var spawnQueu[];
     spawn.memory.spawnQueu = spawnQueu;
 
     spawn.memory.order = spawnQueu[0];
