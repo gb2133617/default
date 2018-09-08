@@ -57,31 +57,34 @@ var godSpawn = {
         var newName = spawn.memory.order + Game.time;
         
         if (spawn.memory.order == 'Harvester') {
-            spawn.spawnCreep(creepType.typeHarvester, newName, {memory: {role: 'harvester'}});   
+            spawn.spawnCreep(creepType.typeHarvester, newName, {memory: {role: 'harvester'}}); 
+            spawn.memory.spawnQueu.shift();  
         }
         if (spawn.memory.order == 'Builder') {
-            spawn.spawnCreep(creepType.typeBuilder, newName, {memory: {role: 'builder'}});  
+            spawn.spawnCreep(creepType.typeBuilder, newName, {memory: {role: 'builder'}});
+            spawn.memory.spawnQueu.shift();  
         }
         if (spawn.memory.order == 'Upgrader') {
             spawn.spawnCreep(creepType.typeUpgrader, newName, {memory: {role: 'upgrader',
                                                                      working: 'false'}});
+            spawn.memory.spawnQueu.shift();
         }
         if (spawn.memory.order == 'Miner') {
             spawn.spawnCreep(creepType.typeMiner, newName, {memory: {role: 'miner'}});
+            spawn.memory.spawnQueu.shift();
         }
         if (spawn.memory.order == 'Lorry') {
             spawn.spawnCreep(creepType.typeLorry, newName, {memory: {role: 'lorry'}});
+            spawn.memory.spawnQueu.shift();
         }
         if (spawn.memory.order == 'W52N57LHD') {
-            console.log(spawn.spawnCreep(creepType.typeW52N57LHD, newName, {memory: {role: 'lhd',
+            spawn.spawnCreep(creepType.typeW52N57LHD, newName, {memory: {role: 'lhd',
                                                                         home: 'W51N57',
                                                                       target: 'W52N57',
-                                                                     working: false }}));
-        }
-        if (spawn.spawning){
+                                                                     working: false }});
             spawn.memory.spawnQueu.shift();
-            spawn.memory.Ready = false;
         }
+            spawn.memory.Ready = false;
     }
     //spawning by role
     if (spawn.memory.spawnQueu.length < 5) {            
