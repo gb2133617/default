@@ -72,8 +72,8 @@ var godSpawn = {
                                                                       target: 'W52N57',
                                                                      working: false }});
         }
-        
-        shift spawnQueu[0];
+
+        spawnQueu.shift[0];
     }
 
     //spawning by role
