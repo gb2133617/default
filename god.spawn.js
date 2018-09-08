@@ -83,28 +83,28 @@ var godSpawn = {
 
         spawn.memory.spawnQueu.shift[0];
     }
-
     //spawning by role
-    if(spawn.memory.harvesterQty < spawn.memory.harvesterMax) {
-        spawn.memory.spawnQueu.push('Harvester');
+    if (spawn.memory.spawnQueu.length < 5) {            
+        if(spawn.memory.harvesterQty < spawn.memory.harvesterMax) {
+            spawn.memory.spawnQueu.push('Harvester');
+        }
+        if(spawn.memory.builderQty < spawn.memory.builderMax) {
+                    spawn.memory.spawnQueu.push('Builder');
+        }
+        if(spawn.memory.upgraderQty < spawn.memory.upgraderMax) {
+                    spawn.memory.spawnQueu.push('Upgrader');
+        }
+        if(spawn.memory.minerQty  < spawn.memory.minerMax) {
+                    spawn.memory.spawnQueu.push('Miner');
+        }
+        if(spawn.memory.lorryQty  < spawn.memory.lorryMax) {
+                    spawn.memory.spawnQueu.push('Lorry');
+        }
+        if(spawn.memory.lhdQty  < spawn.memory.lhdMax) {
+                    spawn.memory.spawnQueu.push('W52N57LHD');
+        }
     }
-    if(spawn.memory.builderQty < spawn.memory.builderMax) {
-        spawn.memory.spawnQueu.push('Builder');
-    }
-    if(spawn.memory.upgraderQty < spawn.memory.upgraderMax) {
-        spawn.memory.spawnQueu.push('Upgrader');
-    }
-    if(spawn.memory.minerQty  < spawn.memory.minerMax) {
-        spawn.memory.spawnQueu.push('Miner');
-    }
-    if(spawn.memory.lorryQty  < spawn.memory.lorryMax) {
-        spawn.memory.spawnQueu.push('Lorry');
-    }
-    if(spawn.memory.lhdQty  < spawn.memory.lhdMax) {
-        spawn.memory.spawnQueu.push('W52N57LHD');
-    }
-
-    if(spawn.spawning) {
+    /*if(spawn.spawning) {
 
         var spawningCreep = Game.creeps[spawn.spawning.name];
         console.log('Spawning new:' + spawningCreep.memory.role);
@@ -114,7 +114,7 @@ var godSpawn = {
             spawn.pos.x + 1,
             spawn.pos.y,
             {align: 'left', opacity: 0.8});
-    }
+    }*/
     
     //console log each type qty
     console.log('Harvester :' + spawn.memory.harvesterQty);
