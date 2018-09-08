@@ -21,7 +21,7 @@ var godSpawn = {
     spawn = Game.spawns['Spawn1'];
 
     //target role qty MAX
-    spawn.memory.harvesterMax = 1;
+    spawn.memory.harvesterMax = 0;
     spawn.memory.builderMax   = 2;
     spawn.memory.upgraderMax  = 3;
     spawn.memory.minerMax     = 2;
@@ -126,7 +126,7 @@ var godSpawn = {
         console.log('Spawning new:' + spawningCreep.memory.role);
 
         spawn.room.visual.text(
-            'Ã°ÂÂÂ Ã¯Â¸Â' + spawningCreep.memory.role,
+            'ÃÂ°ÃÂÃÂÃÂ ÃÂ¯ÃÂ¸ÃÂ' + spawningCreep.memory.role,
             spawn.pos.x + 1,
             spawn.pos.y,
             {align: 'left', opacity: 0.8});
