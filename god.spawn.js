@@ -60,41 +60,34 @@ var godSpawn = {
             spawn.spawnCreep(creepType.typeHarvester, newName, {memory: {role: 'harvester'}}); 
             spawn.memory.spawnQueu.shift();  
         }
-        else {spawn.memory.spawnQueu.shift();}
 
-        if (spawn.memory.order == 'Builder' && spawn.memory.builderQty < spawn.memory.builderMax) {
+        else if (spawn.memory.order == 'Builder' && spawn.memory.builderQty < spawn.memory.builderMax) {
             spawn.spawnCreep(creepType.typeBuilder, newName, {memory: {role: 'builder'}});
             spawn.memory.spawnQueu.shift();  
         }
-        else {spawn.memory.spawnQueu.shift();}
 
-        if (spawn.memory.order == 'Upgrader' && spawn.memory.upgraderQty < spawn.memory.upgraderMax) {
+        else if (spawn.memory.order == 'Upgrader' && spawn.memory.upgraderQty < spawn.memory.upgraderMax) {
             spawn.spawnCreep(creepType.typeUpgrader, newName, {memory: {role: 'upgrader',
                                                                      working: 'false'}});
-            spawn.memory.spawnQueu.shift();
         }
-        else {spawn.memory.spawnQueu.shift();}
 
-        if (spawn.memory.order == 'Miner' && spawn.memory.minerQty  < spawn.memory.minerMax) {
+        else if (spawn.memory.order == 'Miner' && spawn.memory.minerQty  < spawn.memory.minerMax) {
             spawn.spawnCreep(creepType.typeMiner, newName, {memory: {role: 'miner'}});
             spawn.memory.spawnQueu.shift();
         }
-        else {spawn.memory.spawnQueu.shift();}
 
-        if (spawn.memory.order == 'Lorry' && spawn.memory.lorryQty  < spawn.memory.lorryMax) {
+        else if (spawn.memory.order == 'Lorry' && spawn.memory.lorryQty  < spawn.memory.lorryMax) {
             spawn.spawnCreep(creepType.typeLorry, newName, {memory: {role: 'lorry'}});
             spawn.memory.spawnQueu.shift();
         }
-        else {spawn.memory.spawnQueu.shift();}
 
-        if (spawn.memory.order == 'W52N57LHD' && spawn.memory.lhdQty  < spawn.memory.lhdMax) {
+        else if (spawn.memory.order == 'W52N57LHD' && spawn.memory.lhdQty  < spawn.memory.lhdMax) {
             spawn.spawnCreep(creepType.lhd, newName, {memory: {role: 'lhd',
                                                                         home: 'W51N57',
                                                                       target: 'W52N57',
                                                                      working: false }});
-            spawn.memory.spawnQueu.shift();
-        }
-        else {spawn.memory.spawnQueu.shift();}
+            
+        } else {spawn.memory.spawnQueu.shift();}
 
             if (spawn.memory.spawnQueu[0])
             spawn.memory.Ready = false;
@@ -139,7 +132,7 @@ var godSpawn = {
     console.log('Miner     :' + spawn.memory.minerQty'/'spawn.memory.minerMax);
     console.log('Lorry     :' + spawn.memory.lorryQty'/'spawn.memory.lorryMax);
     console.log('Lhd       :' + spawn.memory.lhdQty'/'spawn.memory.lhdMax);
-    console.log('Order que :' + spawn.memory.spawnQueu'/'spawn.memory.spawnQueu);
+    console.log('Order que :' + spawn.memory.spawnQueu);
     }
 };
 module.exports = godSpawn;
