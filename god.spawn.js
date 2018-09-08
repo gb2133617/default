@@ -41,7 +41,7 @@ var godSpawn = {
     spawn.memory.spawnQueu = spawnQueu;
     spawn.memory.order = spawnQueu[0];
 
-    spawn.memory.ready == true;
+    var spawn.memory.ready == true;
 
     if (spawn.memory.ready == true) {
 
