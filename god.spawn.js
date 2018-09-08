@@ -37,10 +37,8 @@ var godSpawn = {
     spawn.memory.lhdQty       = (_.filter(Game.creeps, (creep) => creep.memory.role == 'lhd')).length;
 
     //spawn que
-    var spawnQueu = [];
-    var spawningCreep = Game.creeps[spawn.spawning.name];
-    spawn.memory.spawnQueu = spawnQueu;
-    spawn.memory.order = spawnQueu[0];
+    
+    spawn.memory.order = spawn.memory.spawnQueu[0];
 
 
     if(spawningCreep) {
@@ -83,7 +81,7 @@ var godSpawn = {
                                                                      working: false }});
         }
 
-        spawnQueu.shift[0];
+        spawn.memory.spawnQueu.shift[0];
     }
 
     //spawning by role
@@ -125,7 +123,7 @@ var godSpawn = {
     console.log('Miner     :' + spawn.memory.minerQty);
     console.log('Lorry     :' + spawn.memory.lorryQty);
     console.log('Lhd       :' + spawn.memory.lhdQty);
-    console.log('Order que :' + spawnQueu);
+    console.log('Order que :' + spawn.memory.spawnQueu);
     }
 };
 module.exports = godSpawn;
