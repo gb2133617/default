@@ -61,7 +61,7 @@ var roleLongharvest = {
                 var exit = creep.room.find(creep.room.findExitTo(creep.memory.home));
                 //var escape = creep.pos.findClosestByPath(exit.pos);
                 // and move to exit
-                creep.moveTo(creep.pos.findClosestByRange(exit));
+                creep.moveTo(creep.pos.findClosestByPath(exit));
             }
         }
         // if creep is supposed to harvest energy from source
@@ -95,7 +95,7 @@ var roleLongharvest = {
                 // find exit to target room
                 var exit = creep.room.findExitTo(creep.memory.target);
                 // move to exit
-                creep.moveTo(creep.pos.findClosestByRange(exit));
+                creep.moveTo(creep.pos.findClosestByPath(exit));
             }
         }
     }
