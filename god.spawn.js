@@ -39,13 +39,14 @@ var godSpawn = {
     //spawn que
     
     spawn.memory.order = spawn.memory.spawnQueu[0];
+    console.log('Order' + spawn.memory.order);
 
 
-    if(spawningCreep) {
+    if(!spawn.spawning) {
             spawn.memory.Ready = true;
             console.log('chilling');
         }
-    if(!spawningCreep) {
+    if(spawn.spawning) {
             spawn.memory.Ready = false;
             console.log('busy');
         }
@@ -110,7 +111,7 @@ var godSpawn = {
         console.log('Spawning new:' + spawningCreep.memory.role);
 
         spawn.room.visual.text(
-            '🛠️' + spawningCreep.memory.role,
+            'ð ï¸' + spawningCreep.memory.role,
             spawn.pos.x + 1,
             spawn.pos.y,
             {align: 'left', opacity: 0.8});
