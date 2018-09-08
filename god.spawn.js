@@ -39,8 +39,9 @@ var godSpawn = {
     //spawn que
     var spawnQueu = [];
     spawn.memory.spawnQueu = spawnQueu;
-
     spawn.memory.order = spawnQueu[0];
+
+    spawn.memory.ready == true;
 
     if (spawn.memory.ready == true) {
 
@@ -50,7 +51,7 @@ var godSpawn = {
         }
         if (spawn.memory.order == 'Builder') {
             var newName = spawnQueu[0] + Game.time;
-            spawn.spawnCreep(creepType.typeHarvester, newName, {memory: {role: 'builder'}});  
+            spawn.spawnCreep(creepType.typeBuilder, newName, {memory: {role: 'builder'}});  
         }
         if (spawn.memory.order == 'Upgrader') {
             var newName = spawnQueu[0] + Game.time;
@@ -59,15 +60,15 @@ var godSpawn = {
         }
         if (spawn.memory.order == 'Miner') {
             var newName = spawnQueu[0] + Game.time;
-            spawn.spawnCreep(creepType.typeUpgrader, newName, {memory: {role: 'miner'}});
+            spawn.spawnCreep(creepType.typeMiner, newName, {memory: {role: 'miner'}});
         }
         if (spawn.memory.order == 'Lorry') {
             var newName = spawnQueu[0] + Game.time;
-            spawn.spawnCreep(creepType.typeUpgrader, newName, {memory: {role: 'lorry'}});
+            spawn.spawnCreep(creepType.typeLorry, newName, {memory: {role: 'lorry'}});
         }
         if (spawn.memory.order == 'W52N57LHD') {
             var newName = spawnQueu[0] + Game.time;
-            spawn.spawnCreep(creepType.typeUpgrader, newName, {memory: {role: 'lhd',
+            spawn.spawnCreep(creepType.typeW52N57LHD, newName, {memory: {role: 'lhd',
                                                                         home: 'W51N57',
                                                                       target: 'W52N57',
                                                                      working: false }});
@@ -80,10 +81,10 @@ var godSpawn = {
     if(spawn.memory.harvesterQty < spawn.memory.harvesterMax) {
         spawn.memory.spawnQueu.push('Harvester');
     }
-    if(spawn.memory.builderQty < spawn.memory.builderMax  && spawn.memory.harvesterMax > 0) {
+    if(spawn.memory.builderQty < spawn.memory.builderMax) {
         spawn.memory.spawnQueu.push('Builder');
     }
-    if(spawn.memory.upgraderQty < spawn.memory.upgraderMax  && spawn.memory.harvesterMax > 0) {
+    if(spawn.memory.upgraderQty < spawn.memory.upgraderMax) {
         spawn.memory.spawnQueu.push('Upgrader');
     }
     if(spawn.memory.minerQty  < spawn.memory.minerMax) {
@@ -109,8 +110,10 @@ var godSpawn = {
             spawn.pos.y,
             {align: 'left', opacity: 0.8});
     }
+    else {
         spawn.memory.ready == true;
     }
+    
 
     //console log each type qty
     console.log('Harvester :' + spawn.memory.harvesterQty);
