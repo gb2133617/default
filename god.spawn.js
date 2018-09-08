@@ -133,13 +133,13 @@ var godSpawn = {
     }*/
     
     //console log each type qty
-    console.log('Harvester :' + spawn.memory.harvesterQty);
-    console.log('Builder   :' + spawn.memory.builderQty);
-    console.log('Upgrader  :' + spawn.memory.upgraderQty);
-    console.log('Miner     :' + spawn.memory.minerQty);
-    console.log('Lorry     :' + spawn.memory.lorryQty);
-    console.log('Lhd       :' + spawn.memory.lhdQty);
-    console.log('Order que :' + spawn.memory.spawnQueu);
+    console.log('Harvester :' + spawn.memory.harvesterQty'/'spawn.memory.harvesterMax);
+    console.log('Builder   :' + spawn.memory.builderQty'/'spawn.memory.builderMax);
+    console.log('Upgrader  :' + spawn.memory.upgraderQty'/'spawn.memory.upgraderMax);
+    console.log('Miner     :' + spawn.memory.minerQty'/'spawn.memory.minerMax);
+    console.log('Lorry     :' + spawn.memory.lorryQty'/'spawn.memory.lorryMax);
+    console.log('Lhd       :' + spawn.memory.lhdQty'/'spawn.memory.lhdMax);
+    console.log('Order que :' + spawn.memory.spawnQueu'/'spawn.memory.spawnQueu);
     }
 };
 module.exports = godSpawn;
