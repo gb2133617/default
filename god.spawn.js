@@ -39,7 +39,7 @@ var godSpawn = {
     //spawn que
     
     spawn.memory.order = spawn.memory.spawnQueu[0];
-    console.log('Order' + spawn.memory.order);
+    console.log('Order: ' + spawn.memory.order);
 
 
     if(!spawn.spawning) {
@@ -53,36 +53,35 @@ var godSpawn = {
 
     if (spawn.memory.Ready == true) {
 
+        var spawn = Game.spawns['Spawn1']
+        var newName = spawn.memory.order + Game.time;
+        
         if (spawn.memory.order == 'Harvester') {
-            var newName = spawn.memory.order + Game.time;
             spawn.spawnCreep(creepType.typeHarvester, newName, {memory: {role: 'harvester'}});   
         }
         if (spawn.memory.order == 'Builder') {
-            var newName = spawn.memory.order + Game.time;
             spawn.spawnCreep(creepType.typeBuilder, newName, {memory: {role: 'builder'}});  
         }
         if (spawn.memory.order == 'Upgrader') {
-            var newName = spawn.memory.order + Game.time;
             spawn.spawnCreep(creepType.typeUpgrader, newName, {memory: {role: 'upgrader',
                                                                      working: 'false'}});
         }
         if (spawn.memory.order == 'Miner') {
-            var newName = spawn.memory.order + Game.time;
             spawn.spawnCreep(creepType.typeMiner, newName, {memory: {role: 'miner'}});
         }
         if (spawn.memory.order == 'Lorry') {
-            var newName = spawn.memory.order + Game.time;
             spawn.spawnCreep(creepType.typeLorry, newName, {memory: {role: 'lorry'}});
         }
         if (spawn.memory.order == 'W52N57LHD') {
-            var newName = spawn.memory.order + Game.time;
-            spawn.spawnCreep(creepType.typeW52N57LHD, newName, {memory: {role: 'lhd',
+            console.log(spawn.spawnCreep(creepType.typeW52N57LHD, newName, {memory: {role: 'lhd',
                                                                         home: 'W51N57',
                                                                       target: 'W52N57',
-                                                                     working: false }});
+                                                                     working: false }}));
         }
-
-        spawn.memory.spawnQueu.shift[0];
+        if (spawn.spawning){
+            spawn.memory.spawnQueu.shift();
+            spawn.memory.Ready = false;
+        }
     }
     //spawning by role
     if (spawn.memory.spawnQueu.length < 5) {            
@@ -111,7 +110,7 @@ var godSpawn = {
         console.log('Spawning new:' + spawningCreep.memory.role);
 
         spawn.room.visual.text(
-            'ð ï¸' + spawningCreep.memory.role,
+            'Ã°ÂÂÂ Ã¯Â¸Â' + spawningCreep.memory.role,
             spawn.pos.x + 1,
             spawn.pos.y,
             {align: 'left', opacity: 0.8});
