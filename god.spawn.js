@@ -43,18 +43,18 @@ var godSpawn = {
     //spawning by role
     if(spawn.memory.harvesterQty < spawn.memory.harvesterMax) {
         spawnQeue.push('Harvester');
-        
+
         var newName = 'Harvester' + Game.time;
         spawn.spawnCreep(creepType.typeHarvester, newName,
             {memory: {role: 'harvester'}});
 
     }
-    if(spawn.memory.builderQty < spawn.memory.builderMax  && harvesters.length > 0) {
+    if(spawn.memory.builderQty < spawn.memory.builderMax  && spawn.memory.harvesterMax > 0) {
         var newName = 'Builder' + Game.time;
         spawn.spawnCreep(creepType.typeBuilder, newName,
             {memory: {role: 'builder'}});
     }
-    if(spawn.memory.upgraderQty < spawn.memory.upgraderMax  && harvesters.length > 0) {
+    if(spawn.memory.upgraderQty < spawn.memory.upgraderMax  && spawn.memory.harvesterMax > 0) {
         var newName = 'Upgrader' + Game.time;
         spawn.spawnCreep(creepType.typeUpgrader, newName,
             {memory: {role: 'upgrader',
