@@ -44,28 +44,28 @@ var godSpawn = {
 
     if (spawn.memory.ready == true) {
 
-        if (spawnQueu[0] == 'Harvester') {
+        if (spawn.memory.order == 'Harvester') {
             var newName = spawnQueu[0] + Game.time;
             spawn.spawnCreep(creepType.typeHarvester, newName, {memory: {role: 'harvester'}});   
         }
-        if (spawnQueu[0] == 'Builder') {
+        if (spawn.memory.order == 'Builder') {
             var newName = spawnQueu[0] + Game.time;
             spawn.spawnCreep(creepType.typeHarvester, newName, {memory: {role: 'builder'}});  
         }
-        if (spawnQueu[0] == 'Upgrader') {
+        if (spawn.memory.order == 'Upgrader') {
             var newName = spawnQueu[0] + Game.time;
             spawn.spawnCreep(creepType.typeUpgrader, newName, {memory: {role: 'upgrader',
                                                                      working: 'false'}});
         }
-        if (spawnQueu[0] == 'Miner') {
+        if (spawn.memory.order == 'Miner') {
             var newName = spawnQueu[0] + Game.time;
             spawn.spawnCreep(creepType.typeUpgrader, newName, {memory: {role: 'miner'}});
         }
-        if (spawnQueu[0] == 'Lorry') {
+        if (spawn.memory.order == 'Lorry') {
             var newName = spawnQueu[0] + Game.time;
             spawn.spawnCreep(creepType.typeUpgrader, newName, {memory: {role: 'lorry'}});
         }
-        if (spawnQueu[0] == 'W52N57LHD') {
+        if (spawn.memory.order == 'W52N57LHD') {
             var newName = spawnQueu[0] + Game.time;
             spawn.spawnCreep(creepType.typeUpgrader, newName, {memory: {role: 'lhd',
                                                                         home: 'W51N57',
