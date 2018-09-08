@@ -40,47 +40,65 @@ var godSpawn = {
     var spawnQueu = []
     spawn.memory.spawnQueu = spawnQueu;
 
+    spawn.memory.order = spawnQueu[0];
+
+    if (spawn.memory.ready == true) {
+
+        if (spawnQueu[0] == 'Harvester') {
+            var newName = spawnQueu[0] + Game.time;
+            spawn.spawnCreep(creepType.typeHarvester, newName, {memory: {role: 'harvester'}});   
+        }
+        if (spawnQueu[0] == 'Builder') {
+            var newName = spawnQueu[0] + Game.time;
+            spawn.spawnCreep(creepType.typeHarvester, newName, {memory: {role: 'builder'}});  
+        }
+        if (spawnQueu[0] == 'Upgrader') {
+            var newName = spawnQueu[0] + Game.time;
+            spawn.spawnCreep(creepType.typeUpgrader, newName, {memory: {role: 'upgrader',
+                                                                     working: 'false'}});
+        }
+        if (spawnQueu[0] == 'Miner') {
+            var newName = spawnQueu[0] + Game.time;
+            spawn.spawnCreep(creepType.typeUpgrader, newName, {memory: {role: 'miner'}});
+        }
+        if (spawnQueu[0] == 'Lorry') {
+            var newName = spawnQueu[0] + Game.time;
+            spawn.spawnCreep(creepType.typeUpgrader, newName, {memory: {role: 'lorry'}});
+        }
+        if (spawnQueu[0] == 'W52N57LHD') {
+            var newName = spawnQueu[0] + Game.time;
+            spawn.spawnCreep(creepType.typeUpgrader, newName, {memory: {role: 'lhd',
+                                                                        home: 'W51N57',
+                                                                      target: 'W52N57',
+                                                                     working: false }});
+        }
+        
+        shift spawnQueu[0];
+    }
+
     //spawning by role
     if(spawn.memory.harvesterQty < spawn.memory.harvesterMax) {
         spawnQeue.push('Harvester');
-
-        var newName = 'Harvester' + Game.time;
-        spawn.spawnCreep(creepType.typeHarvester, newName,
-            {memory: {role: 'harvester'}});
-
     }
     if(spawn.memory.builderQty < spawn.memory.builderMax  && spawn.memory.harvesterMax > 0) {
-        var newName = 'Builder' + Game.time;
-        spawn.spawnCreep(creepType.typeBuilder, newName,
-            {memory: {role: 'builder'}});
+        spawnQeue.push('Builder');
     }
     if(spawn.memory.upgraderQty < spawn.memory.upgraderMax  && spawn.memory.harvesterMax > 0) {
-        var newName = 'Upgrader' + Game.time;
-        spawn.spawnCreep(creepType.typeUpgrader, newName,
-            {memory: {role: 'upgrader',
-                      working: 'false'
-            }});
-    }        
+        spawnQeue.push('Upgrader');
+    }
     if(spawn.memory.minerQty  < spawn.memory.minerMax) {
-        var newName = 'Miner' + Game.time;
-        spawn.spawnCreep(creepType.typeMiner, newName,
-            {memory: {role: 'miner'
-            }});
+        spawnQeue.push('Miner');
     }
     if(spawn.memory.lorryQty  < spawn.memory.lorryMax) {
-        var newName = 'Lorry' + Game.time;
-        spawn.spawnCreep(creepType.typeLorry, newName,
-            {memory: {role: 'lorry'}});
+        spawnQeue.push('Lorry');
     }
     if(spawn.memory.lhdQty  < spawn.memory.lhdMax) {
-        var newName = 'W52N57LHD' + Game.time;
-        spawn.spawnCreep(creepType.lhd, newName,
-            {memory: {role: 'lhd',
-                      home: 'W51N57',
-                      target: 'W52N57',
-                      working: false }});
+        spawnQeue.push('W52N57LHD');
     }
+
     if(spawn.spawning) {
+
+        spawn.memory.ready == false;
 
         var spawningCreep = Game.creeps[spawn.spawning.name];
         console.log('Spawning new:' + spawningCreep.memory.role);
