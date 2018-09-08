@@ -45,11 +45,11 @@ var godSpawn = {
 
     if(spawningCreep) {
             spawn.memory.Ready = true;
-            creep.say(chilling);
+            console.log('chilling');
         }
     if(!spawningCreep) {
             spawn.memory.Ready = false;
-            creep.say(busy);
+            console.log('busy');
         }
 
     if (spawn.memory.Ready == true) {
