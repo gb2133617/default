@@ -41,9 +41,16 @@ var godSpawn = {
     spawn.memory.spawnQueu = spawnQueu;
     spawn.memory.order = spawnQueu[0];
 
-    var spawnReady = true;
+    if(spawn.spawning) {
+            spawn.memory.Ready = false;
+            creep.say(chilling);
+        }
+    if(!spawn.spawning) {
+            spawn.memory.Ready = true;
+            creep.say(busy);
+        }
 
-    if (spawnReady == true) {
+    if (spawn.memory.Ready == true) {
 
         if (spawn.memory.order == 'Harvester') {
             var newName = spawn.memory.order + Game.time;
@@ -99,8 +106,6 @@ var godSpawn = {
 
     if(spawn.spawning) {
 
-        spawnReady == false;
-
         var spawningCreep = Game.creeps[spawn.spawning.name];
         console.log('Spawning new:' + spawningCreep.memory.role);
 
@@ -110,11 +115,7 @@ var godSpawn = {
             spawn.pos.y,
             {align: 'left', opacity: 0.8});
     }
-    else {
-        spawnReady == true;
-    }
     
-
     //console log each type qty
     console.log('Harvester :' + spawn.memory.harvesterQty);
     console.log('Builder   :' + spawn.memory.builderQty);
