@@ -23,7 +23,7 @@ var godSpawn = {
     //target role qty MAX
     spawn.memory.harvesterMax = 1;
     spawn.memory.builderMax   = 2;
-    spawn.memory.upgraderMax  = 4;
+    spawn.memory.upgraderMax  = 3;
     spawn.memory.minerMax     = 2;
     spawn.memory.lorryMax     = 3;
     spawn.memory.lhdMax       = 5;
@@ -86,7 +86,7 @@ var godSpawn = {
             spawn.memory.spawnQueu.shift();
         }
         else {spawn.memory.spawnQueu.shift();}
-        
+
         if (spawn.memory.order == 'W52N57LHD' && spawn.memory.lhdQty  < spawn.memory.lhdMax) {
             spawn.spawnCreep(creepType.lhd, newName, {memory: {role: 'lhd',
                                                                         home: 'W51N57',
