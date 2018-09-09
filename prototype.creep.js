@@ -1,12 +1,12 @@
 	//resource ID's in a room
-	room.prototype.sources = 
-		function(): {
+	Creep.prototype.sources = 
+		function() {
 			let room = this.room;
-			room.find(FIND_SOURCES);
+			creep.room.find(FIND_SOURCES);
 		}
 	//paired Container and Source
-	room.prototype.availableMine = 
-		function(): {
+	Creep.prototype.availableMine = 
+		function() {
 
 			let room = this.room;
 			let sources = room.sources;
@@ -23,7 +23,3 @@
             	}
             	return containers;
         	}
-    	
-    
-
-module.exports = 
