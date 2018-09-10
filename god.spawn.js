@@ -107,8 +107,9 @@ var godSpawn = {
     }*/
     
     //console log each type qty
-    //console.log('Room Energy available/Capacity :' + room.energyAvailable + '/' + room.energyCapacityAvailable);
-    //console.log('Storage Energy Capacity:' + room.storage.energyAvailable);
+    let room = Game.rooms('W51N57');
+    console.log('Room Energy available/Capacity :' + room.energyAvailable + '/' + room.energyCapacityAvailable);
+    console.log('Storage Energy Capacity:' + room.storage.energyAvailable);
     console.log('Harvester :' + spawn.memory.harvesterQty + '/' + spawn.memory.harvesterMax);
     console.log('Builder   :' + spawn.memory.builderQty + '/' + spawn.memory.builderMax);
     console.log('Upgrader  :' + spawn.memory.upgraderQty + '/' + spawn.memory.upgraderMax);
