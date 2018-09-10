@@ -5,8 +5,8 @@ var godSpawn = require('god.spawn');
 var godAllocate = require('god.allocate');
 var roleMiner = require('role.miner');
 var roleLorry = require('role.lorry');
-var roleLongharvest = require('role.longharvest')
- 
+var roleLongharvest = require('role.longharvest');
+//require('prototype.creep');
 module.exports.loop = function () {
     
     godSpawn.run();
