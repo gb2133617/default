@@ -9,6 +9,7 @@ Creep = function() { };
 
 Creep.prototype =
 {
+    getSources: ,
     /**
      * An array describing the creep’s body
      *
